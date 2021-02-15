@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <title>Beep</title>
+    <link rel=”icon” type=”image/png” href=”images/beep-1@2x.png" >
+  
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-white bg-white">
+      <div class="container-fluid">
+        <img height="80" src="images/beep-1@2x.png" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img
+                  class="navimg"
+                  src="images/Icon%20material-notifications-none@2x.png"
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                ><img class="navimg" src="images/profile_close_2@2x.png" /><span
+                  class="navtxt"
+                  >My Profile</span
+                ></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img class="navimg" src="images/bag_3@2x.png" /><span
+                  class="navtxt"
+                  >0 Items</span
+                ></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><img src="images/search-icon@2x.png"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+    </nav>
+   
+    <!-- Nav ends -->
+
+    <div class="container-fluid" class="main-content" style="padding: 0;">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color:#f6f7f8; height: 60px; padding-top: 20px;">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Accessories</li>
+        </ol>
+      </nav>
+      <section id="main-content-section">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-3">
+              <div class="card" style="height: 350px">
+                <h3 class="pl-4 pt-3">
+                  <p class="text-uppercase">All categories</p>
+                </h3>
+                <ul class="categories-list pl-4">
+                  <a href="#"><li>Accessories</li></a>
+                  <a href="#"><li>Cables & Docks</li></a>
+                  <a href="#"><li>Cases & Films</li></a>
+                  <a href="#"><li>Charging Devices</li></a>
+                  <a href="#"><li>Connected Home</li></a>
+                  <a href="#"><li>Headphones</li></a>
+                </ul>
+              </div>
+              <div class="card" style="margin-top: 24px; padding-bottom: 8%">
+                <h3 class="pl-4 pt-3">
+                  <p class="text-uppercase">PRICE</p>
+                </h3>
+                <div class="price-box">
+                  <span
+                    style="
+                      display: block;
+                      font-size: 18px;
+                      font-weight: bold;
+                      padding-left: 15%;
+                    "
+                    >Min</span
+                  >
+                  <span
+                    style="
+                      display: block;
+                      font-size: 18px;
+                      font-weight: bold;
+                      padding-right: 15%;
+                    "
+                    >Max</span
+                  >
+                </div>
+                <div class="price-box">
+                  <div class="input-group" style="padding: 0 10% 0 10%">
+                    <div class="input-group-prepend"></div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Min"
+                      aria-label="Min"
+                      aria-describedby="basic-addon1"
+                      value="0"
+                      id="min-price"
+                      onchange="validate()"
+                    />
+                  </div>
+                  <div style="padding: 0 15px 0 15px">-</div>
+                  <div class="input-group" style="padding: 0 10% 0 10%">
+                    <div class="input-group-prepend"></div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Max"
+                      aria-label="Max"
+                      aria-describedby="basic-addon1"
+                      value="999"
+                      id="max-price"
+                      onchange="validate()"
+                    />
+                  </div>
+                </div>
+                <div
+                  id="err-box"
+                  class="alert alert-danger mt-2 ml-4 mr-4 pb-0"
+                  role="alert"
+                >
+                  <p id="err-msg">ERROR</p>
+                </div>
+              </div>
+              <div class="card" style="margin-top: 24px; padding-bottom: 10%">
+                <h3 class="pl-4 pt-3 text-uppercase">COLOR</h3>
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin: 0 20% 0 20%;
+                    padding-top:5%;
+                  "
+                >
+                  <span class="dot dot-red"></span></a>
+                  <span class="dot dot-green"></span>
+                  <span class="dot dot-blue"></span>
+                  <span class="dot dot-red"></span>
+                  <span class="dot dot-blue"></span>
+            
+                </div>
+              </div>
+              <div class="card" style="margin-top: 24px">
+                <h3 class="pl-4 pt-3">
+                  <p class="text-uppercase">BRAND</p>
+                </h3>
+                <ul class="categories-list category-list-brand pl-4">
+                  <a href="#"
+                    ><li><span>Apple</span><span>99</span></li></a
+                  >
+                  <a href="#"
+                    ><li><span>Beats</span><span>99</span></li></a
+                  >
+                  <a href="#"
+                    ><li><span>Samsung</span><span>99</span></li></a
+                  >
+                  <a href="#"
+                    ><li><span>Siemens</span><span>99</span></li></a
+                  >
+                </ul>
+              </div>
+              <div class="card" style="text-align: center; margin-top: 24px">
+                <a href="#" style="text-decoration: none;"><h3 class="text-center pt-3">
+                  <li><p class="text-uppercase">MORE</p></li>
+                </h3></a>
+              </div>
+            </div>
+            <!-- left column ends -->
+
+            <div class="col-9">
+              <div
+                id="carouselExampleIndicators"
+                class="carousel slide"
+                data-ride="carousel"
+                style="background-color: #33a0ff; height: 350px"
+              >
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="1"
+                  ></li>
+                  <li
+                    data-target="#carouselExampleIndicators"
+                    data-slide-to="2"
+                  ></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div
+                        class="col-7"
+                        style="height: 350px;
+                          display: flexbox;
+                          flex-direction: column;
+                          justify-content: center;
+                          align-items: center;
+                          padding-left: 10%;
+                          padding-top: 5%;
+                        "
+                      >
+                        <h3 style="padding-bottom: 25px" class="txtcsrl" >iPhone</h3>
+                        <p
+                          class="txtcsrl"
+                          style="padding-bottom: 25px; text-decoration-color: white;
+                          color: white;"
+                        >
+                          Performance and design. Taken right to the edege. 
+                        </p>
+                        <button
+                          style="margin-top: 25px; color:whilte; font-weight: bold; text-decoration: underline;"
+                          type="button"
+                          class="btn btn-primary"
+                        >
+                          SHOW ALL
+                        </button>
+                      </div>
+                      <div class="col-5">
+                        <img
+                          src="images/iPhone6s_discover_desktop_08_iOS9.png"
+                          class="img-fluid"
+                          alt="iphone image"
+                        />
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div
+                        class="col-7"
+                        style="height: 350px;
+                          display: flexbox;
+                          flex-direction: column;
+                          justify-content: center;
+                          align-items: center;
+                          padding-left: 10%;
+                          padding-top: 5%;
+                        "
+                      >
+                        <h3 style="padding-bottom: 25px" class="txtcsrl" >iPhone</h3>
+                        <p
+                          class="txtcsrl"
+                          style="padding-bottom: 25px; text-decoration-color: white;
+                          color: white;"
+                        >
+                          Performance and design. Taken right to the edege. 
+                        </p>
+                        <button
+                          style="margin-top: 25px; color:whilte; font-weight: bold; text-decoration: underline;"
+                          type="button"
+                          class="btn btn-primary"
+                        >
+                          SHOW ALL
+                        </button>
+                      </div>
+                      <div class="col-5">
+                        <img
+                          src="images/iPhone6s_discover_desktop_08_iOS9.png"
+                          class="img-fluid"
+                          alt="iphone image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="row">
+                      <div
+                        class="col-7"
+                        style="height: 350px;
+                          display: flexbox;
+                          flex-direction: column;
+                          justify-content: center;
+                          align-items: center;
+                          padding-left: 10%;
+                          padding-top: 5%;
+                        "
+                      >
+                        <h3 style="padding-bottom: 25px" class="txtcsrl" >iPhone</h3>
+                        <p
+                          class="txtcsrl"
+                          style="padding-bottom: 25px; text-decoration-color: white;
+                          color: white;"
+                        >
+                          Performance and design. Taken right to the edege. 
+                        </p>
+                        <button
+                          style="margin-top: 25px; color:whilte; font-weight: bold; text-decoration: underline;"
+                          type="button"
+                          class="btn btn-primary"
+                        >
+                          SHOW ALL
+                        </button>
+                      </div>
+                      <div class="col-5">
+                        <img
+                          src="images/iPhone6s_discover_desktop_08_iOS9.png"
+                          class="img-fluid"
+                          alt="iphone image"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid srt-clmn mt-5" style="background-color: white;">
+
+                <div class="" style="padding-right: 5%; font-weight: bold;">13 Items</div>
+                
+                
+                          <div class="" style="font-weight: bold;">Sort By</div>                  
+                        
+                          <div class="dropdown" style="padding-left: 2%;">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: black;">
+                              Name
+                            </a>
+                          
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="#">Name</a>
+                              <a class="dropdown-item" href="#">Price</a>
+                              <a class="dropdown-item" href="#">Star</a>
+                            </div>
+                          </div>
+              
+                               
+                  <div class="" style="padding-left: 5%; font-weight: bold;">Show</div>   
+                  <div class="dropdown" style="padding-left: 2%;">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: white; color: black;">
+                      12
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">12</a>
+                      <a class="dropdown-item" href="#">13</a>
+                      <a class="dropdown-item" href="#">14</a>
+                    </div>
+                  </div>
+                
+              </div>
+              <div class="row" style="margin-top: 24px">
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 24px">
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 24px">
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 24px">
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="card" style="width: 90%">
+                    <div class="card-body">
+                      <img
+                        src="images/Rectangle 5.png"
+                        alt="product-image"
+                        style="width: 50%"
+                        class="mx-auto d-block"
+                      />
+                      <hr />
+                      <h4 class="text-center">Product name</h4>
+                      <div
+                        style="
+                          display: flexbox;
+                          flex-direction: row;
+                          align-items: center;
+                        "
+                      >
+                        <img
+                          src="./rating.svg"
+                          height="60"
+                          class="d-block mx-auto"
+                        />
+                      </div>
+                      <p class="text-center">$455</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid number-panel mt-5">
+
+<a href="">
+  <div class="n-panel-numbers">1</div>
+</a><a href="">
+  <div class="n-panel-numbers">2</div>
+</a><a href="">
+  <div class="n-panel-numbers">3</div>
+</a><a href="">
+  <div class="n-panel-numbers">4</div>
+</a><a href="">
+  <div class="n-panel-numbers">5</div>
+</a>
+
+              </div>
+            </div>
+            <!-- right column ends -->
+          </div>
+          <!-- end of row -->
+        </div>
+        <!-- end of container -->
+      </section>
+      <hr />
+      <section>
+        <div class="container-fluid">
+          <div class="row p-5">
+            <div class="col-4">
+              <img src="./images/beep@2x.png" height="85" alt="" />
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+                vel optio possimus magni rerum illo ab sint! Temporibus, quasi
+                minima. Veritatis rerum architecto sint deserunt!
+              </p>
+            </div>
+            <div class="col-4 p-5">
+              <h4>Follow us</h4>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
+                vel optio possimus magni rerum illo ab sint! Temporibus, quasi
+                minima. Veritatis rerum architecto sint deserunt!
+              </p>
+              <a href="#"><img src="images/facebook@2x.png" style="padding-right: 8%;"></a>
+              <a href="#"><img src="images/twitter@2x.png"></a>
+              
+            </div>
+            <div class="col-4 p-5">
+              <h4>Contact us</h4>
+              <p>
+                Lorem ipsum dolor sit amet. <br />Lorem, ipsum dolor.
+                <br />Lorem ipsum dolor sit.
+              </p>
+            </div>
+          </div>
+          <hr />
+          <div class="flexbox" style=" display: flex;
+          flex-direction: row;
+          justify-content: space-between;">
+          <span><div class=""><p>&#169:2021 Ecommerce site by www.beep.com</p></div></span>
+            <span>
+              <div class="">
+                <img src="images/Western-union.png">
+                <img src="images/Group 19.png">
+                <img src="images/Paypal.png">
+                <img src="images/Shape 328.png">
+                </div>
+            </span>
+            
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./js/myjs.js"></script>
+</html>

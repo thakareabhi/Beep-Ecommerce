@@ -1,0 +1,126 @@
+body {
+  background-color: #f6f7f8;
+}
+li {
+  list-style-type: none;
+}
+@font-face {
+  font-family: myFirstFont;
+  src: url(../fonts/Muli-Regular);
+}
+body .navtxt {
+  font-family: myFirstFont, sans-serif;
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+body .navimg {
+  padding-right: 10px;
+  height: 20px;
+}
+.main-content {
+  margin-left: 50px;
+}
+.carousel-item img {
+  height: 350px;
+  padding: 15px;
+}
+.categories-list {
+  font-weight: 500;
+}
+
+.categories-list li {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+.category-list-brand li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 8%;
+}
+.categories-list a:hover {
+  text-decoration: none;
+  color: #33a0ff;
+}
+
+.categories-list a {
+  color: black;
+}
+.price-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+}
+#err-box {
+  display: none;
+}
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline;
+}
+.dot-red {
+  background-color: rgb(231, 45, 45);
+}
+.dot-green {
+  background-color: rgb(94, 230, 61);
+}
+.dot-blue {
+  background-color: rgb(63, 86, 216);
+}
+.srt-clmn {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 50px;
+}
+
+.number-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.n-panel-numbers {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.number-panel a {
+  list-style: none;
+  color: black;
+}
+.n-panel-numbers:hover {
+  background-color: black;
+  color: wheat;
+}
+.black-box {
+  background-color: black;
+
+  color: wheat;
+}
+.txtcsrl {
+  color: white;
+}
+.radio-toolbar label {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 10px 20px;
+  font-family: sans-serif, Arial;
+  font-size: 16px;
+  border: 2px solid #444;
+  border-radius: 4px;
+}
+
